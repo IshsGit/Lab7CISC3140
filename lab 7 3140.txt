@@ -1,0 +1,51 @@
+Lab 7
+
+For this lab I wrote a recursive function that returns if an input is a palindrome. This was a problem I have done several times in java in earlier semesters and popular leetcode problems for interviews.
+
+In java when an input is read, it runs through a simple algorithm including a series of for loops and if statements and output whether or not itfs a palindrome or not. Similarly in Scheme I can accept an input, have it run through a variations of conditional statements and output whether its true or false. However, in Scheme, I donft need a Classloader, nothing is stored in memory or in a heap, no garbage collection, variable declaration et cetc. Interestingly with Scheme, the function itself and the name of the function are separate entities. The statement bodies that execute logic are encapsulated within Procedure Calls. A basic procedure callfs syntax looks like:
+
+(procedure-name arg1 arg2 arg3)
+
+* Parenthesis starts and ends a call
+* Arguments separated by spaces
+* Dashes can be part of names
+
+Examples from lecture also follow this syntax i.e (* (+ 4 2) 2)
+
+Reference: https://www.tutorialspoint.com/lisp/lisp_program_structure.htm
+
+To find whether or not an input is a palindrome or not in Scheme I used a sub function that takes list as a input and returns reverse of a list if the reverse input is the same as the original input. i.e check:
+
+reverse '(a b c)) ---> '(c b a)
+
+Begin with the procedure call: 
+
+(define (palindrome ls)
+
+If the list is not empty then append tail and call reverse then takes list as input and checks for palindrome.
+
+(append (reverse (cdr ls)) (list (car ls))
+
+Lastly, it takes the list as input and checks if its a palindrome. It displays whether its true or false.
+
+(check-palindrome ls (reverse ls)))
+
+
+
+
+Recursive function to output etruef or efalsef if input is a palindrome 
+
+(define (reverse ls)
+(cond ((null? ls) '())
+(else (append (reverse (cdr ls)) (list (car ls)))))) 
+
+(define (palindrome ls)
+(check-palindrome ls (reverse ls)))
+(define (check-palindrome ls1 ls2)
+(cond ((null? ls1)'true)
+((equal? (car ls1) (car ls2)) (check-palindrome (cdr ls1) (cdr ls2)))
+(else 'false)))
+(display (palindrome '(r a r)))
+(newline)
+
+
